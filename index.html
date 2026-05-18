@@ -7,12 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Libreria per i coriandoli -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, .font-serif { font-family: 'Playfair Display', serif; }
         .gradient-dark { background: linear-gradient(135deg, #020617 0%, #0f172a 100%); }
         .accent-line { width: 50px; height: 4px; background: #14b8a6; margin: 1.5rem 0; }
         .slot-box { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        /* Stile per immagini con overlay leggibile */
+        .bg-overlay-image {
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900 leading-relaxed">
@@ -25,129 +32,173 @@
                 <a href="#identita" class="hover:text-teal-600">Identità</a>
                 <a href="#conflitto" class="hover:text-teal-600">Conflitto</a>
                 <a href="#impatto" class="hover:text-teal-600">Impatto</a>
-                <a href="#realtà" class="hover:text-teal-600">Realtà</a>
+                <a href="#reality_conflict" class="hover:text-teal-600">Realtà</a>
+                <a href="#realtà" class="hover:text-teal-600">Gioco</a>
             </div>
         </div>
     </nav>
 
-    <section id="intro" class="min-h-screen flex items-center justify-center gradient-dark text-white px-6">
-        <div class="max-w-4xl text-center" data-aos="fade-up">
-            <span class="text-teal-400 font-mono tracking-widest uppercase text-sm">Percorso di Educazione Civica</span>
-            <h1 class="text-5xl md:text-8xl mt-4 mb-8">L'Individuo tra <br><span class="italic text-teal-200">Bit e Realtà</span></h1>
-            <p class="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto">
-                Dalla protezione dei dati alla geopolitica dei conflitti: un'analisi multidisciplinare sulla nostra impronta nel mondo contemporaneo.
-            </p>
+    <!-- INTRO: Immagine di rete globale astratta -->
+    <section id="intro" class="min-h-screen flex items-center gradient-dark text-white px-6 pt-20 relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Rete globale" class="w-full h-full object-cover">
         </div>
-    </section>
-
-    <section id="identita" class="py-32 px-6 max-w-5xl mx-auto">
-        <div data-aos="fade-right">
-            <h2 class="text-4xl font-bold mb-4">🌐01. La Sovranità del Dato</h2>
-            <div class="accent-line"></div>
-            <p class="text-xl text-slate-600 mb-8">
-                Il <strong>GDPR (General Data Protection RegulationRegolamento UE 2016/679)</strong> è la principale normativa europea sulla privacy e la protezione dei dati personali. Il suo scopo principale è garantire ai cittadini il controllo sui propri dati e uniformare le regole sul trattamento per tutte le aziende</p>
-            <li><strong>Cosa tutela</strong>: Qualsiasi informazione che possa identificare direttamente o indirettamente una persona fisica (es. nome, email, indirizzo IP, dati biometrici).</li>
-            <br>
-            <li><strong>A chi si applica</strong>: A tutte le aziende e organizzazioni, comprese quelle con sede fuori dall'Europa, che trattano i dati di persone residenti nell'Unione Europea.</li>   
-            <br>
-            <p class="text-xl text-slate-600 mb-8">
-            Il <strong>I tuoi diritti fondamentali</strong> è la principale normativa europea sulla privacy e la protezione dei dati personali. Il suo scopo principale è garantire ai cittadini il controllo sui propri dati e uniformare le regole sul trattamento per tutte le aziende</p>
-            <li><strong>Diritto di accesso</strong>: Puoi chiedere a un'azienda quali tuoi dati possiede e come li utilizza.</li>
-            <br>
-            <li><strong>Diritto all'oblio</strong>: Puoi richiedere la cancellazione definitiva dei tuoi dati personali.</li>
-            <br>
-            <li><strong>Diritto di rettifica</strong>: Puoi pretendere la correzione di dati inesatti.</li>
-            <br>
-            <li><strong>Portabilità</strong>: Puoi richiedere di ricevere i tuoi dati in un formato leggibile o farli trasferire ad altro titolare. </li>
-            <br>
-            <div class="grid md:grid-cols-2 gap-8 bg-slate-50 p-8 rounded-2xl border border-slate-100">
-                <div>
-                    <h4 class="font-bold text-teal-800 uppercase text-xs mb-2">Diritto alla Cittadinanza</h4>
-                    <p class="text-sm">Essere cittadini consapevoli oggi significa comprendere il <strong>TPS (Trusted Platform Module)</strong> e come la sicurezza hardware protegga l'integrità della nostra identità digitale contro accessi non autorizzati.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-teal-800 uppercase text-xs mb-2">L'Algoritmo Personale</h4>
-                    <p class="text-sm">Il dato è il carburante dell'economia moderna. Proteggerlo significa preservare il libero arbitrio contro la profilazione predittiva.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="conflitto" class="py-32 px-6 bg-slate-900 text-white">
-        <div class="max-w-5xl mx-auto">
-            <div data-aos="fade-up">
-                <h2 class="text-4xl font-bold mb-4 text-teal-400">⚖️02. Sorveglianza vs Libertà</h2>
-                <div class="accent-line"></div>
-                <blockquote class="text-2xl italic font-serif border-l-4 border-teal-500 pl-8 my-12 text-slate-300">
-                    "Il capitalismo della sorveglianza rivendica unilateralmente l'esperienza umana come materia prima gratuita per pratiche commerciali segrete."
-                    <footer class="text-sm font-sans mt-4 non-italic text-slate-500">— Shoshana Zuboff</footer>
-                </blockquote>
-                <p class="text-lg leading-relaxed text-slate-400">
-                    Il conflitto non è più solo fisico. La tecnologia ha creato una <strong>società del controllo invisibile</strong>, dove la comodità dei servizi digitali è lo specchietto per le allodole 
-                    per una raccolta dati onnipresente. Qui la libertà non viene soppressa con la forza, ma guidata attraverso il "nudging" (la spinta gentile) degli algoritmi.
-                    Il capitalismo della sorveglianza applicato alla Pubblica Amministrazione descrive la trasformazione dei servizi statali in sistemi di controllo digitale. I dati dei cittadini vengono estratti e monetizzati per prevedere 
-                    e influenzare i comportamenti di massa, trasformando l'identificazione digitale in uno strumento di monitoraggio continuo.
+        <div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <span class="text-teal-400 font-mono tracking-widest uppercase text-sm">Percorso di Educazione Civica</span>
+                <h1 class="text-5xl md:text-7xl mt-4 mb-8 leading-tight">L'Individuo tra <br><span class="italic text-teal-200">Bit e Realtà</span></h1>
+                <p class="text-lg md:text-xl text-slate-300 font-light">
+                    Dalla protezione dei dati alla geopolitica dei conflitti: un'analisi multidisciplinare sulla nostra impronta nel mondo contemporaneo.
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="impatto" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-20" data-aos="zoom-in">
-            <h2 class="text-4xl font-bold">03. L'Impronta Fisica del Digitale</h2>
-            <p class="text-slate-500 mt-4">Il cloud non è aria, è ferro, silicio e corrente elettrica.</p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-12">
-            <div data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-xl font-bold mb-4 flex items-center"><span class="bg-teal-100 text-teal-700 px-3 py-1 rounded mr-3 text-sm italic">Hardware</span> Green Tech 🌱</h3>
-                <p class="text-slate-600 text-sm">La progettazione sostenibile sfida l'obsolescenza programmata. Analizzare il ciclo di vita (LCA) di uno smartphone significa tracciarne l'origine dai minerali rari fino allo smaltimento dei rifiuti elettronici.</p>
+    <!-- IDENTITÀ: Immagine di codice e sicurezza -->
+    <section id="identita" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Schermo con codice di sicurezza" class="rounded-2xl shadow-2xl object-cover w-full h-full border-4 border-slate-100">
+                <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg border border-teal-100 hidden md:block">
+                    <p class="font-bold text-teal-800 text-sm">Encrypted Connection</p>
+                    <p class="text-xs text-slate-500">Secure Access Required</p>
+                </div>
             </div>
-            <div data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-xl font-bold mb-4 flex items-center"><span class="bg-teal-100 text-teal-700 px-3 py-1 rounded mr-3 text-sm italic">Infrastrutture</span> Data Center 📱</h3>
-                <p class="text-slate-600 text-sm">Le telecomunicazioni e i grandi server center richiedono sistemi di raffreddamento immensi. Il passaggio alle <strong>Green Infrastructures</strong> è l'unica via per rendere il progresso compatibile con gli obiettivi climatici.</p>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="300">
-                <h3 class="text-xl font-bold mb-4 flex items-center"><span class="bg-teal-100 text-teal-700 px-3 py-1 rounded mr-3 text-sm italic">Corpo</span> Benessere 🫀</h3>
-                <p class="text-slate-600 text-sm">Scienze Motorie: Il corpo subisce la staticità della vita digitale. Una postura corretta e un'alimentazione bilanciata sono gli strumenti bio-meccanici per contrastare lo stress da iper-connessione.</p>
-            </div>
-        </div>
-    </section>
-  
-
-    <section id="identita" class="py-32 px-6 max-w-5xl mx-auto">
-        <div data-aos="fade-right">
-            <h2 class="text-4xl font-bold mb-4">🖥️04. Oltre lo schermo la realtà cruda</h2>
-            <div class="accent-line"></div>
-            <p class="text-xl text-slate-600 mb-8">
-                                           Mentre discutiamo di bit, il mondo vive conflitti reali e tangibili. Il reportage di <strong>Enzo Nucci</strong> ci riporta alla terra: dove la tecnologia non è svago, ma strumento di sopravvivenza o di oppressione,conseguenza estrema dei conflitti geopolitici, oggi fortemente influenzati dalle tecnologie di telecomunicazione, 
-                                            dalla propaganda digitale e dal controllo delle risorse energetiche o alimentari,
-                                            un richiamo necessario per non perdere il contatto con l'empatia umana.
-                                            
+            <div data-aos="fade-right">
+                <h2 class="text-4xl font-bold mb-4">🌐01. La Sovranità del Dato</h2>
+                <div class="accent-line"></div>
+                <p class="text-lg text-slate-600 mb-6">
+                    Il <strong>GDPR (General Data Protection Regulation)</strong> è la principale normativa europea sulla privacy. Il suo scopo principale è garantire ai cittadini il controllo sui propri dati e uniformare le regole sul trattamento.
+                </p>
+                <ul class="list-disc pl-5 space-y-2 text-slate-600 mb-6">
+                    <li><strong>Cosa tutela</strong>: Qualsiasi informazione che possa identificare direttamente o indirettamente una persona (es. nome, email, indirizzo IP).</li>
+                    <li><strong>A chi si applica</strong>: A tutte le aziende che trattano dati di residenti nell'UE.</li>
+                </ul>
+                <div class="grid grid-cols-2 gap-4 mt-8">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-teal-800 uppercase text-xs mb-2">Diritto alla Cittadinanza</h4>
+                        <p class="text-xs">Comprendere il <strong>TPM (Trusted Platform Module)</strong> e come la sicurezza hardware protegge l'identità.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-teal-800 uppercase text-xs mb-2">L'Algoritmo</h4>
+                        <p class="text-xs">Il dato è il carburante dell'economia. Proteggerlo significa preservare il libero arbitrio contro la profilazione.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CONFLITTO: Immagine di sorveglianza (CCTV) -->
+    <section id="conflitto" class="py-24 px-6 bg-slate-900 text-white relative">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+            <div data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 text-teal-400">⚖️02. Sorveglianza vs Libertà</h2>
+                <div class="accent-line"></div>
+                <blockquote class="text-2xl italic font-serif border-l-4 border-teal-500 pl-8 my-8 text-slate-300">
+                    "Il capitalismo della sorveglianza rivendica unilateralmente l'esperienza umana come materia prima gratuita per pratiche commerciali segrete."
+                    <footer class="text-sm font-sans mt-4 non-italic text-slate-500">— Shoshana Zuboff</footer>
+                </blockquote>
+                <p class="text-lg leading-relaxed text-slate-400">
+                    Il conflitto non è più solo fisico. La tecnologia ha creato una <strong>società del controllo invisibile</strong>, dove la comodità dei servizi digitali è lo specchietto per le allodole per una raccolta dati onnipresente.
+                </p>
+            </div>
+            <div class="relative" data-aos="zoom-in">
+                <div class="absolute -inset-2 bg-teal-500/10 rounded-full blur-xl"></div>
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Telecamera di sorveglianza" class="relative rounded-xl shadow-2xl border border-slate-700 grayscale hover:grayscale-0 transition-all duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPATTO: Immagini di Server e Hardware -->
+    <section id="impatto" class="py-24 px-6 max-w-7xl mx-auto bg-slate-50">
+        <div class="text-center mb-16" data-aos="zoom-in">
+            <h2 class="text-4xl font-bold">03. L'Impronta Fisica del Digitale</h2>
+            <p class="text-slate-500 mt-4">Il cloud non è aria, è ferro, silicio e corrente elettrica.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1: Green Tech (IMMAGINE MODIFICATA) -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Circuito organico verde" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                </div>
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="bg-teal-100 text-teal-700 px-2 py-1 rounded mr-3 text-xs italic">Hardware</span> Green Tech 🌱
+                    </h3>
+                    <p class="text-slate-600 text-sm">La progettazione sostenibile sfida l'obsolescenza programmata. Analizzare il ciclo di vita (LCA) di uno smartphone significa tracciarne l'origine dai minerali rari.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cavi del Data Center" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                </div>
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="bg-teal-100 text-teal-700 px-2 py-1 rounded mr-3 text-xs italic">Infra</span> Data Center 📱
+                    </h3>
+                    <p class="text-slate-600 text-sm">Le telecomunicazioni e i grandi server center richiedono sistemi di raffreddamento immensi. Il passaggio alle <strong>Green Infrastructures</strong> è essenziale.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Persona al computer" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                </div>
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="bg-teal-100 text-teal-700 px-2 py-1 rounded mr-3 text-xs italic">Corpo</span> Benessere 🫀
+                    </h3>
+                    <p class="text-slate-600 text-sm">Scienze Motorie: Il corpo subisce la staticità della vita digitale. Una postura corretta è lo strumento bio-meccanico contro lo stress da iper-connessione.</p>
+                </div>
+            </div>
+        </div>
+    </section>
   
-    <section id="realtà" class="py-32 px-6 bg-slate-100 border-t border-slate-200">
+    <!-- REALTÀ CONFLITTO: Immagine di Drone/Geopolitica -->
+    <section id="reality_conflict" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-900 min-h-[500px]" data-aos="fade-up">
+            <!-- Immagine di un drone/controllo aereo -->
+            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Vista aerea e tecnologia militare" class="absolute inset-0 w-full h-full object-cover opacity-50">
+            <div class="relative z-10 p-12 md:p-24 text-white max-w-3xl bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent h-full flex flex-col justify-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">🖥️04. Oltre lo schermo la realtà cruda</h2>
+                <div class="accent-line"></div>
+                <p class="text-xl md:text-2xl font-light leading-relaxed text-slate-200">
+                    Mentre discutiamo di bit, il mondo vive conflitti reali e tangibili. Il reportage di <strong>Enzo Nucci</strong> ci riporta alla terra: dove la tecnologia non è svago, ma strumento di sopravvivenza o di oppressione.
+                </p>
+                <p class="mt-6 text-lg text-teal-200">
+                    Conseguenza estrema dei conflitti geopolitici, oggi fortemente influenzati dalle tecnologie di telecomunicazione, dalla propaganda digitale e dal controllo delle risorse. Un richiamo necessario per non perdere il contatto con l'empatia umana.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE GIOCO: Immagine di Slot Machine -->
+    <section id="realtà" class="py-24 px-6 bg-white border-t border-slate-100">
         <div class="max-w-6xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-16 items-start">
                 
                 <div data-aos="fade-right">
                     <h2 class="text-4xl font-bold mb-6 text-slate-900">🎰05. L'illusione del gioco</h2>
+                    <div class="rounded-xl overflow-hidden shadow-md mb-8">
+                        <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Slot Machine e luci al neon" class="w-full h-64 object-cover">
+                    </div>
                     <p class="text-slate-600 mb-8 leading-relaxed">
-                   la trappola psicologica del gioco d'azzardo. Entrambi ci ricordano che fuori dalla bolla digitale 
-                   esistono conseguenze fisiche, economiche e umane permanenti che si legano all'ingegneria del comportamento e agli algoritmi usati nei social media per 
-                   creare dipendenza, dinamica centrale nel capitalismo della sorveglianza.
+                        La trappola psicologica del gioco d'azzardo. Entrambi ci ricordano che fuori dalla bolla digitale esistono conseguenze fisiche, economiche e umane permanenti che si legano all'ingegneria del comportamento e agli algoritmi usati nei social media per creare dipendenza.
                     </p>
-                    <div class="p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+                    <div class="p-6 bg-red-50 rounded-xl border border-red-100">
                         <h4 class="font-bold text-red-600 mb-2">Il paradosso del banco</h4>
-                        <p class="text-sm italic">"Nel gioco d'azzardo, la perdita è l'unica certezza matematica distribuita nel tempo. La vincita è un'anomalia statistica temporanea."</p>
+                        <p class="text-sm italic text-red-800">"Nel gioco d'azzardo, la perdita è l'unica certezza matematica distribuita nel tempo. La vincita è un'anomalia statistica temporanea."</p>
                     </div>
                 </div>
 
-                <div data-aos="fade-left" class="bg-white p-8 rounded-3xl shadow-2xl border border-slate-200">
+                <div data-aos="fade-left" class="bg-slate-50 p-8 rounded-3xl shadow-2xl border border-slate-200">
                     <div class="text-center mb-8">
                         <h3 class="text-2xl font-bold text-slate-800">Analisi del Rischio</h3>
                         <p class="text-xs text-slate-400 uppercase tracking-widest mt-1">Simulatore di probabilità reale</p>
@@ -163,7 +214,7 @@
                         TENTA LA GIOCATA
                     </button>
 
-                    <div class="mt-8 grid grid-cols-2 gap-4 text-center border-t border-slate-100 pt-6">
+                    <div class="mt-8 grid grid-cols-2 gap-4 text-center border-t border-slate-200 pt-6">
                         <div>
                             <span class="block text-2xl font-bold text-slate-800" id="counterTentativi">0</span>
                             <span class="text-[10px] uppercase text-slate-400 font-bold">Giocate effettuate</span>
@@ -180,9 +231,9 @@
         </div>
     </section>
 
-    <footer class="py-20 bg-white border-t border-slate-100 text-center">
+    <footer class="py-20 bg-slate-50 border-t border-slate-200 text-center">
         <div class="max-w-2xl mx-auto px-6">
-            <h2 class="font-serif italic text-3xl mb-6">"L'etica è la responsabilità di fronte all'infinito."</h2>
+            <h2 class="font-serif italic text-3xl mb-6 text-slate-800">"L'etica è la responsabilità di fronte all'infinito."</h2>
             <p class="text-slate-400 text-sm uppercase tracking-widest">Compito Educazione civica 2026 • Pietro Gallozzi - Schiappa Nicolas • Responsabilità Digitale</p>
         </div>
     </footer>
@@ -194,8 +245,12 @@
 
         let tentativi = 0;
         let perdite = 0;
+        let gameEnded = false; // Flag per fermare il gioco
 
         function playSlot() {
+            // Se il gioco è finito, non fare nulla
+            if (gameEnded) return;
+
             const symbols = ['🍒', '🍋', '🔔', '💎', '7️⃣', '🍉', '⭐'];
             const btn = document.getElementById('playBtn');
             const msg = document.getElementById('slotMessage');
@@ -216,10 +271,29 @@
             document.getElementById('slot2').innerText = s2;
             document.getElementById('slot3').innerText = s3;
 
-            // Logica del messaggio
+            // Logica del messaggio e condizione di vittoria
             if(s1 === s2 && s2 === s3) {
                 msg.innerText = "Hai vinto! Ma guarda le giocate totali: statisticamente saresti ancora in perdita.";
                 msg.className = "mt-6 text-center text-sm font-bold text-green-600 italic px-4";
+                
+                // EFFETTO CORIANDOLI (Confetti)
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#14b8a6', '#fbbf24', '#ffffff'], // Colori tema: Teal, Oro, Bianco
+                    zIndex: 9999
+                });
+
+                // FERMA IL GIOCO
+                gameEnded = true;
+                btn.disabled = true; // Disabilita il bottone
+                btn.innerText = "VITTORIA RAGGIUNTA";
+                
+                // Cambia lo stile del bottone per renderlo "inattivo"
+                btn.classList.remove('bg-teal-600', 'hover:bg-teal-700', 'shadow-lg');
+                btn.classList.add('bg-slate-400', 'cursor-not-allowed');
+                
             } else {
                 msg.innerText = tentativi > 5 ? "Il banco sta vincendo. La matematica non sbaglia mai." : "Ritenta. La dopamina ti spinge a continuare...";
                 msg.className = "mt-6 text-center text-sm font-medium text-slate-500 italic px-4";
